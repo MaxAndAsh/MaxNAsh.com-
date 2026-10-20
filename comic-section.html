@@ -1,0 +1,53 @@
+<!-- Max'N'Ash Comics section. Paste inside your existing website <body>.
+Upload this file's assets alongside it. All CSS is scoped to #maxnash-comics and won't restyle the rest of your website. -->
+<section id="maxnash-comics">
+<style>
+#maxnash-comics{--red:#f32e38;--blue:#16bdf4;--gold:#ffd447;background:#0b1220;color:#f6f8ff;border:1px solid #263c5b;border-radius:18px;padding:clamp(16px,3vw,30px);margin:28px auto;width:100%;font-family:Arial,Helvetica,sans-serif;box-sizing:border-box;isolation:isolate}
+#maxnash-comics *{box-sizing:border-box}
+#maxnash-comics .mna-title{text-align:center;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;margin:0 0 8px}
+#maxnash-comics .mna-title span:first-child{color:var(--red)}#maxnash-comics .mna-title span:last-child{color:var(--blue)}
+#maxnash-comics .mna-sub{text-align:center;color:#c6d3e8;margin:0 auto 24px}
+#maxnash-comics .mna-feature{max-width:1000px;margin:auto;display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:24px;align-items:center}
+#maxnash-comics .mna-cover{width:100%;height:auto;display:block;border:2px solid white;border-radius:8px;box-shadow:0 12px 28px #0009}
+#maxnash-comics h3{color:var(--gold);margin:0 0 12px;font-size:1.5rem}
+#maxnash-comics p{line-height:1.55}
+#maxnash-comics .mna-btn{display:inline-block;border:0;border-radius:999px;background:var(--gold);color:#171717;font-weight:900;padding:12px 18px;margin:6px 8px 6px 0;cursor:pointer;text-decoration:none}
+#maxnash-comics .mna-btn.alt{background:#1b3858;color:white;border:1px solid #3f75a8}
+#maxnash-comics .mna-reader{display:none;max-width:1000px;margin:28px auto 0}
+#maxnash-comics .mna-reader.open{display:block}
+#maxnash-comics .mna-reader-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid #39506e;padding-bottom:10px;margin-bottom:16px}
+#maxnash-comics .mna-pages{display:grid;grid-template-columns:1fr;gap:20px}
+#maxnash-comics .mna-page{display:block;width:100%;max-width:760px;height:auto;margin:auto;border:3px solid white;background:white}
+#maxnash-comics .mna-note{color:#bdcce2;font-size:.9rem}
+@media(max-width:650px){#maxnash-comics .mna-feature{grid-template-columns:1fr;text-align:center}#maxnash-comics .mna-cover{max-width:300px;margin:auto}}
+</style>
+<h2 class="mna-title"><span>MAX'N'</span><span>ASH COMICS</span></h2>
+<p class="mna-sub">Original adventures. New powers. Same dreams.</p>
+<div class="mna-feature">
+  <img class="mna-cover" src="power-surge-cover.png" alt="Max'N'Ash: Power Surge, Issue 1 cover">
+  <div>
+    <h3>POWER SURGE — ISSUE #1</h3>
+    <p><strong>Part 1: The Centipede Incident</strong></p>
+    <p>Max and Ash's ordinary day turns upside down when a giant centipede with a glowing crystal attacks. Jake and Jarvis are pulled into the fight, while Sammy discovers a strange violet power of his own. Meanwhile, the villains Luna and Blizz watch from a hidden laboratory.</p>
+    <p><strong>Featuring:</strong> Max, Ash, Jake, Jarvis, Sammy, Luna and Blizz.</p>
+    <button class="mna-btn" id="mna-open-reader" type="button" aria-expanded="false">📖 Read Comic</button>
+    <a class="mna-btn alt" href="power-surge-cover.png" download>Download Cover</a>
+  </div>
+</div>
+<div class="mna-reader" id="mna-comic-reader">
+  <div class="mna-reader-head"><h3>Read Comic: The Centipede Incident</h3><button class="mna-btn alt" id="mna-close-reader" type="button">Close Comic</button></div>
+  <p class="mna-note">Illustrated preview pages. Sammy's awakening is part of the story and the next expanded page set can be added here.</p>
+  <div class="mna-pages">
+    <img class="mna-page" src="comic-pages/page-01.jpg" alt="Illustrated comic page: Max and Ash's normal day and the centipede incident">
+    <img class="mna-page" src="comic-pages/page-02.jpg" alt="Illustrated comic page: the centipede incident continues">
+  </div>
+</div>
+<script>
+(function(){
+ const root=document.getElementById('maxnash-comics'); if(!root||root.dataset.ready)return; root.dataset.ready='1';
+ const reader=root.querySelector('#mna-comic-reader'),open=root.querySelector('#mna-open-reader');
+ open.addEventListener('click',()=>{reader.classList.add('open');open.setAttribute('aria-expanded','true');reader.scrollIntoView({behavior:'smooth',block:'start'});});
+ root.querySelector('#mna-close-reader').addEventListener('click',()=>{reader.classList.remove('open');open.setAttribute('aria-expanded','false');root.scrollIntoView({behavior:'smooth',block:'start'});});
+})();
+</script>
+</section>
